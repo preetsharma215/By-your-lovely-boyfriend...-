@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For You 💘</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;}
+
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(to bottom,#ffd6e8,#ffbfd9);
+  font-family:'Poppins',sans-serif;
+  overflow:hidden;
+}
+
+/* SCREENS */
+.screen{
+  position:absolute;
+  width:100%;
+  max-width:360px;
+  opacity:0;
+  transform:translateY(25px);
+  transition:opacity 0.6s ease, transform 0.6s ease;
+  pointer-events:none;
+}
+.screen.active{
+  opacity:1;
+  transform:translateY(0);
+  pointer-events:auto;
+}
+
+/* CARD */
+.card{
+  background:#fff;
+  padding:26px 22px;
+  border-radius:25px;
+  text-align:center;
+  box-shadow:0 12px 30px rgba(0,0,0,0.18);
+}
+
+/* TEXT */
+h3{
+  font-family:'Playfair Display',serif;
+  font-size:20px;
+  color:#e75480;
+  margin-bottom:14px;
+}
+
+.big-text{
+  font-family:'Playfair Display',serif;
+  font-size:26px;
+  color:#e75480;
+  margin-bottom:12px;
+}
+
+.message{
+  font-size:18px;
+  font-weight:600;
+  color:#444;
+  line-height:1.6;
+  letter-spacing:0.3px;
+}
+
+/* GIF */
+.sticker{
+  display:block;
+  margin:16px auto 20px;
+  width:190px;
+  border-radius:18px;
+}
+
+/* Valentine GIF smooth */
+#valGif{
+  transition:opacity 0.25s ease;
+}
+
+/* BUTTONS */
+.btn-wrap{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+}
+
+button{
+  padding:14px 24px;
+  font-size:16px;
+  border:none;
+  border-radius:14px;
+  cursor:pointer;
+  transition:0.35s ease;
+}
+
+.next{
+  background:#e75480;
+  color:#fff;
+}
+.next:hover{
+  transform:scale(1.08);
+}
+
+.yes{
+  background:#2ecc71;
+  color:#fff;
+}
+.no{
+  background:#e74c3c;
+  color:#fff;
+}
+
+/* EMOJI RAIN */
+.emoji{
+  position:fixed;
+  top:-10px;
+  font-size:22px;
+  pointer-events:none;
+  animation:fall linear forwards;
+}
+
+@keyframes fall{
+  to{
+    transform:translateY(110vh);
+    opacity:0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- INTRO -->
+<div class="screen active" id="s1">
+  <div class="card">
+    <h3>This is for your smile 🫶</h3>
+    <button class="next" onclick="go(1,2)">Next 👉🏻</button>
+  </div>
+</div>
+
+<!-- ROSE -->
+<div class="screen" id="s2">
+  <div class="card">
+    <h3>🌹 Happy Rose Day 🌹</h3>
+    <p class="message">Phool mere pyaare se phool ke liye 🌹</p>
+    <img class="sticker" src="https://media.tenor.com/eaUxd0z7ByIAAAAi/toofiothe-cat-im-sorry.gif">
+    <button class="next" onclick="go(2,3)">Next 👉🏻</button>
+  </div>
+</div>
+
+<!-- TEDDY -->
+<div class="screen" id="s3">
+  <div class="card">
+    <h3>🧸 Happy Teddy Day 🧸</h3>
+    <p class="message">Mai hu to tumhara teddy 🤍</p>
+    <img class="sticker" src="https://media1.tenor.com/m/jmSkrMcLtqcAAAAd/smile-cat.gif">
+    <button class="next" onclick="go(3,4)">Next 👉🏻</button>
+  </div>
+</div>
+
+<!-- CHOCOLATE -->
+<div class="screen" id="s4">
+  <div class="card">
+    <h3>🍫 Happy Chocolate Day 🍫</h3>
+    <p class="message">Tum meri favorite chocolate se bhi jyada favourite ho 😋🤍</p>
+    <img class="sticker" src="https://media.tenor.com/Fa8qitdHSwsAAAAj/love-it-kiss.gif">
+    <button class="next" onclick="go(4,5)">Next 👉🏻</button>
+  </div>
+</div>
+
+<!-- PROMISE -->
+<div class="screen" id="s5">
+  <div class="card">
+    <h3>🤞 Happy Promise Day 🤞</h3>
+    <p class="message">Mummy ksm sarr dard ban jaunga prr dil ka dard nhi 💘</p>
+    <img class="sticker" src="https://media1.tenor.com/m/MHcdyIl-GGkAAAAd/mochi-mochimochi.gif">
+    <button class="next" onclick="go(5,6)">Next 👉🏻</button>
+  </div>
+</div>
+
+<!-- VALENTINE -->
+<div class="screen" id="s6">
+  <div class="card">
+    <h3>Will you be my Valentine? 💝</h3>
+    <img class="sticker" id="valGif" src="https://media.tenor.com/m_Xz6ZewnigAAAAi/mimibubu.gif">
+    <div class="btn-wrap">
+      <button class="yes" id="yesBtn">Yes</button>
+      <button class="no" id="noBtn">No</button>
+    </div>
+  </div>
+</div>
+
+<!-- CELEBRATION -->
+<div class="screen" id="s7">
+  <div class="card">
+    <div class="big-text">I knew it! You love me a lot 😚</div>
+    <img class="sticker" src="https://media1.tenor.com/m/im7hu4LtdV8AAAAC/mochi-mochimochi.gif">
+    <p class="message">Happy Valentine's Day Mrs. Sharma ji 💗🥹</p>
+  </div>
+</div>
+
+<script>
+function go(a,b){
+  const cur=document.getElementById("s"+a);
+  const next=document.getElementById("s"+b);
+  cur.classList.remove("active");
+  setTimeout(()=>next.classList.add("active"),250);
+}
+
+/* Valentine logic */
+const texts=[
+"No","Are you sure?","Really sure?","Think again!","Last chance!",
+"Please don't do that","My heart will broke","Please cutie","At least for me"
+];
+
+const gifs=[
+"https://media.tenor.com/m_Xz6ZewnigAAAAi/mimibubu.gif",
+"https://media1.tenor.com/m/V9irLqnUcLsAAAAd/shock-shocked.gif",
+"https://media.tenor.com/Tj1pnVSzvtgAAAAj/unhappy-crying.gif",
+"https://media1.tenor.com/m/nZWtNu1AUjUAAAAC/sad-cat-cat.gif",
+"https://media.tenor.com/hDQbEt368GcAAAAi/game.gif",
+"https://media.tenor.com/c6nXyQmertAAAAAi/the-voices.gif",
+"https://media1.tenor.com/m/T8Je2FxuXTAAAAAd/ok-cat-thumbs-up-cat.gif",
+"https://media1.tenor.com/m/xbqgd0VBHt8AAAAC/peach-and.gif",
+"https://media1.tenor.com/m/szFJZKSZrswAAAAd/pikachu-sad.gif"
+];
+
+/* Preload GIFs */
+gifs.forEach(src=>{
+  const img=new Image();
+  img.src=src;
+});
+
+let i=0;
+const noBtn=document.getElementById("noBtn");
+const yesBtn=document.getElementById("yesBtn");
+const gif=document.getElementById("valGif");
+
+noBtn.onclick=()=>{
+  if(i<texts.length){
+    noBtn.innerText=texts[i];
+    gif.style.opacity=0;
+    setTimeout(()=>{
+      gif.src=gifs[i];
+      gif.style.opacity=1;
+    },120);
+    noBtn.style.transform=`scale(${1-i*0.18})`;
+    yesBtn.style.transform=`scale(${1+i*0.35})`;
+    i++;
+  }
+  if(i===texts.length){
+    yesBtn.innerText="Now you have to say yes! 😤";
+    yesBtn.style.fontSize="22px";
+    yesBtn.style.padding="30px 42px";
+    yesBtn.style.transform="scale(4)";
+    noBtn.style.display="none";
+  }
+};
+
+yesBtn.onclick=()=>{
+  go(6,7);
+  startCelebration();
+};
+
+function startCelebration(){
+  const emojis=["💖","💕","🌹","😍","✨"];
+  setInterval(()=>{
+    const e=document.createElement("div");
+    e.className="emoji";
+    e.innerText=emojis[Math.floor(Math.random()*emojis.length)];
+    e.style.left=Math.random()*100+"vw";
+    e.style.animationDuration=2+Math.random()*3+"s";
+    document.body.appendChild(e);
+    setTimeout(()=>e.remove(),5000);
+  },180);
+}
+</script>
+
+</body>
+  </html>
