@@ -123,10 +123,11 @@ button{
 /* EMOJI RAIN */
 .emoji{
   position:fixed;
-  top:-10px;
+  top:-40px;
   font-size:22px;
   pointer-events:none;
-  animation:fall linear forwards;
+  animation: fall 3s linear forwards;
+  will-change: transform;
 }
 
 @keyframes fall{
