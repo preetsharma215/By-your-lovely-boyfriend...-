@@ -9,24 +9,31 @@
 <style>
 *{box-sizing:border-box;}
 
+html, body{
+  width:100%;
+  height:100%;
+}
+
+/* 🌸 BODY BACKGROUND */
 body{
   margin:0;
-  height:100vh;
   display:flex;
   justify-content:center;
   align-items:center;
   font-family:'Poppins',sans-serif;
   overflow:hidden;
-background-image: url("https://raw.githubusercontent.com/preetsharma215/By-your-lovely-boyfriend...-/acc33391fa47454ce9c5ebbe99b09c9f312b215e/54430944e785aca2ff3965c4b75f989e.jpg");
-background-repeat: no-repeat;
-background-position: center;
-background-size: cover;
+
+  background-color:#ffffff;
+  background-image:url("https://raw.githubusercontent.com/preetsharma215/By-your-lovely-boyfriend...-/acc33391fa47454ce9c5ebbe99b09c9f312b215e/54430944e785aca2ff3965c4b75f989e.jpg");
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:cover;
+}
 
 /* SCREENS */
 .screen{
   position:absolute;
   width:100%;
-  max-width:360px;
   height:100vh;
   display:flex;
   justify-content:center;
@@ -49,6 +56,7 @@ background-size: cover;
   border-radius:25px;
   text-align:center;
   box-shadow:0 12px 30px rgba(0,0,0,0.18);
+  max-width:360px;
 }
 
 /* TEXT */
@@ -71,7 +79,6 @@ h3{
   font-weight:600;
   color:#444;
   line-height:1.6;
-  letter-spacing:0.3px;
 }
 
 /* GIF */
@@ -80,11 +87,6 @@ h3{
   margin:16px auto 20px;
   width:190px;
   border-radius:18px;
-}
-
-/* Valentine GIF smooth */
-#valGif{
-  transition:opacity 0.25s ease;
 }
 
 /* BUTTONS */
@@ -107,9 +109,7 @@ button{
   background:#e75480;
   color:#fff;
 }
-.next:hover{
-  transform:scale(1.08);
-}
+.next:hover{ transform:scale(1.08); }
 
 .yes{
   background:#2ecc71;
@@ -120,19 +120,54 @@ button{
   color:#fff;
 }
 
-/* EMOJI RAIN */
+/* 🎉 EMOJI RAIN */
 .emoji{
   position:fixed;
   top:-40px;
   font-size:22px;
   pointer-events:none;
-  animation: fall 3s linear forwards;
-  will-change: transform;
+  animation: fall 4s linear forwards;
 }
 
 @keyframes fall{
+  from{
+    transform:translateY(0);
+    opacity:1;
+  }
   to{
     transform:translateY(110vh);
+    opacity:0;
+  }
+}
+</style>
+</head>
+
+<body>
+<!-- INTRO -->
+<div class="screen active" id="s1">
+  <div class="card">
+    <h3>This is for your smile 🫶</h3>
+    <button class="next" onclick="go(1,2)">Next 👉🏻</button>
+  </div>
+</div>
+
+<!-- ROSE -->
+<div class="screen" id="s2">
+  <div class="card">
+    <h3>🌹 Happy Rose Day 🌹</h3>
+    <p class="message">Phool mere pyaare se phool ke liye 🌹</p>
+    <img class="sticker" src="https://media.tenor.com/eaUxd0z7ByIAAAAi/toofiothe-cat-im-sorry.gif">
+    <button class="next" onclick="go(2,3)">Next 👉🏻</button>
+  </div>
+</div>
+
+<!-- TEDDY -->
+<div class="screen" id="s3">
+  <div class="card">
+    <h3>🧸 Happy Teddy Day 🧸</h3>
+    <p class="message">Mai hu to tumhara teddy 🤍</p>
+    <img class="sticker" src="https://media1.tenor.com/m/jmSkrMcLtqcAAAAd/smile-cat.gif">
+    <button class="next" onclick="go(3,4)">Next 👉🏻</button>
     opacity:0;
   }
 }
