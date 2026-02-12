@@ -113,19 +113,23 @@ button{
   background:#e74c3c;
   color:#fff;
 }
-
 /* EMOJI RAIN */
 .emoji{
   position:fixed;
-  top:-10px;
+  top:-40px;
   font-size:22px;
   pointer-events:none;
-  animation:fall linear forwards;
+  animation: fall 4s linear forwards;
+  z-index:9999;
 }
 
 @keyframes fall{
+  from{
+    transform: translateY(0);
+    opacity:1;
+  }
   to{
-    transform:translateY(110vh);
+    transform: translateY(110vh);
     opacity:0;
   }
 }
